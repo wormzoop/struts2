@@ -39,7 +39,7 @@
 		</global-exception-mappings>
 	</package>
 
-	<include file="com/zoop/struts/user.hbm.xml" />
+	<include file="com/zoop/struts/user-struts.xml" />
 	
 	
 </struts>
