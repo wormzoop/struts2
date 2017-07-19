@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- 各种设定 -->
+	<!-- 后缀 -->
+	<constant name="struts.action.extension" value="action,do" />
+	<!-- 标签模式 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 文件上传错误信息 -->
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<!-- 文件大小 -->
+	<constant name="struts.multipart.maxSize" value="204800000" />
+	<!-- 编码 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.locale" value="zh_CN" />
+	<!-- 详细信息 开发用 -->
+	<constant name="devMode" value="true" />
+	<!-- 动态加载XML 开发用 -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<!-- browserCache 开发用 -->
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+
+	<!-- 全局定义 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">login</param>
+				<param name="namespace">/default</param>
+			</result>
+
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+	</package>
+
+	<include file="com/zoop/struts/user.hbm.xml" />
+	
+	
+</struts>
