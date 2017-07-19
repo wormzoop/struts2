@@ -7,13 +7,11 @@ import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import net.sf.json.JSONArray;
-
 public class UserAction extends ActionSupport{
 
 	private static final long serialVersionUID = -7262966706665445470L;
 	
-	private String result;
+	private List<Map<String, String>> result;
 	
 	public String execute() throws Exception{
 		return SUCCESS;
@@ -29,16 +27,15 @@ public class UserAction extends ActionSupport{
 		map1.put("name", "jiji");
 		list.add(map);
 		list.add(map1);
-		JSONArray jsonArray = JSONArray.fromObject(list);
-		setResult(jsonArray.toString());
+		this.setResult(list);
 		return SUCCESS;
 	}
 	
-	public String getResult() {
+	public List<Map<String, String>> getResult() {
 		return result;
 	}
 	
-	public void setResult(String result) {
+	public void setResult(List<Map<String, String>> result) {
 		this.result = result;
 	}
 	
