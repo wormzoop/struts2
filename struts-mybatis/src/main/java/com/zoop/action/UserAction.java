@@ -6,12 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.zoop.dao.UserDao;
+import com.zoop.entity.User;
 
 public class UserAction extends ActionSupport{
 
 	private static final long serialVersionUID = -7262966706665445470L;
 	
 	private List<Map<String, String>> result;
+	
+	private List<User> userlist;
 	
 	public String execute() throws Exception{
 		return SUCCESS;
@@ -31,12 +35,28 @@ public class UserAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	public String userlist() throws Exception{
+		List<User> list = new ArrayList<User>();
+		UserDao userDao = new UserDao();
+		list = userDao.getUserList();
+		this.setUserlist(list);
+		return SUCCESS;
+	}
+	
 	public List<Map<String, String>> getResult() {
 		return result;
 	}
 	
 	public void setResult(List<Map<String, String>> result) {
 		this.result = result;
+	}
+
+	public List<User> getUserlist() {
+		return userlist;
+	}
+
+	public void setUserlist(List<User> userlist) {
+		this.userlist = userlist;
 	}
 	
 }
