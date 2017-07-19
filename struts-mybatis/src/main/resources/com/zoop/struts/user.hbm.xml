@@ -5,10 +5,16 @@
 
 <struts>
 
-    <package name="user" namespace="/" extends="default">
+    <package name="user" namespace="/" extends="default,json-default">
 
         <action name="user" class="com.zoop.action.UserAction">
             <result name="success">/WEB-INF/jsp/user.jsp</result>
+        </action>
+
+		<action name="userlist" class="com.zoop.action.UserAction" method="jsonexec">
+           <result type="json">
+                <param name="root">result</param>
+            </result>
         </action>
 
     </package>
